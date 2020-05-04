@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   get 'home/about'
   devise_for :users
   resources :users
+  get 'users/:id/follows'=> 'users#follows', as: 'follows'
+  get 'users/:id/followers'=> 'users#followers', as: 'followers'
   
   resources :books do
    resource :book_comments, only:[:create, :destroy]
@@ -11,6 +13,6 @@ Rails.application.routes.draw do
   end
 
   post 'follow/:id' => 'relationships#follow', as: 'follow' # フォローする
-  post 'unfollow/:id' => 'relationships#unfollow', as: 'unfollow' # 
+  post 'unfollow/:id' => 'relationships#unfollow', as: 'unfollow' # フォロー外す
   
 end
