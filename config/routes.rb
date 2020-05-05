@@ -12,7 +12,7 @@ Rails.application.routes.draw do
    resource :favorites, only: [:create, :destroy]
   end
 
-  post 'follow/:id' => 'relationships#follow', as: 'follow' # フォローする
-  post 'unfollow/:id' => 'relationships#unfollow', as: 'unfollow' # フォロー外す
+  post 'follow/:id' => 'relationships#create', as: 'follow' # フォローする
+  post 'unfollow/:id' => 'relationships#destroy', as: 'unfollow' # フォロー外す
   
 end
